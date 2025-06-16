@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alec Boyd | Music Producer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      background: #f3f3f3;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    header h1 {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .portfolio-item {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: #fafafa;
+    }
+    .portfolio-item img {
+      max-width: 100%;
+      height: auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      background: #f3f3f3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/mnt/data/cinestill_400d_04_26_2024_000293290027.jpg" alt="Alec Boyd Headshot" style="width: 240px; height: auto; border-radius: 0;" />
+    <h1>Your one-stop shop for music production</h1>
+    <p>I’m Alec Boyd — a songwriter, engineer, and producer who helps artists take songs from idea to finished record.</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>I take a holistic approach to music production. I’ve worked as a studio engineer, session musician, songwriter, mixer, and mastering engineer, which allows me to speak the language of both creativity and quality. I want your music to feel like you—and I know how to help you get there.</p>
+  </section>
+
+  <section>
+    <h2>Selected Credits</h2>
+    <div class="portfolio">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/300x200" alt="Project Thumbnail" />
+        <p><strong>Artist Name</strong><br>Role: Producer, Mixer</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/300x200" alt="Project Thumbnail" />
+        <p><strong>Artist Name</strong><br>Role: Engineer, Mastering</p>
+      </div>
+      <!-- Add more items here -->
+    </div>
+  </section>
+
+  <section>
+    <h2>Songwriting with Alec</h2>
+    <p>Watch me write and produce songs in real-time. I share the full creative process — from blank page to final track — on my YouTube series, Songwriting with Alec.</p>
+    <p><a href="https://www.youtube.com/@alecboydmusic" target="_blank">Watch on YouTube</a></p>
+  </section>
+
+  <section>
+    <h2>Services</h2>
+    <ul>
+      <li>Songwriting</li>
+      <li>Production</li>
+      <li>Mixing</li>
+      <li>Mastering</li>
+      <li>Studio Engineering</li>
+    </ul>
+    <p>Ask about bundled pricing if you're looking to do multiple services with me.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Based in Austin, TX. Happy to work remotely or in person.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Alec Boyd. All rights reserved.
+  </footer>
+</body>
+</html>
