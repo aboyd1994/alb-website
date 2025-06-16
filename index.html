@@ -20,11 +20,12 @@
       --title-scale-y: 1.1;
       --title-spacing: 0.05em;
       --content-width: 98vw;
-      --underline-height: 10vw;
+      --underline-height: 8vw;
       --underline-stroke: 10;
       --animation-duration: 1s;
       --underline-speed: 0.8s;
       --underline-delay: 1.6s;
+      --underline-offset: calc(-1 * var(--underline-height) - 0vw);  /* adjust this to raise/lower underline */
       --padding-base: 2rem 1rem;
       --max-content: 800px;
     }
@@ -76,7 +77,7 @@
     /* Underline SVG positioned and animated */
     .hero-underline {
       position: absolute;
-      bottom: calc(-1 * var(--underline-height) - 0.2vw);
+      bottom: var(--underline-offset); /* uses offset variable */
       left: 50%;
       width: 80%;
       height: var(--underline-height);
