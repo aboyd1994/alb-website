@@ -5,110 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alec Boyd | Music Producer</title>
   <style>
+    /* Import Montserrat weights */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
     :root {
-      --max-width: 800px;
+      --hero-height: 100vh;
+      --hero-bg: url("https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg");
+      --text-color-light: #fff;
+      --title-max-width: 98vw;
+      --title-font-size: 12vw;
+      --title-letter-spacing: 0.05em;
+      --title-scale-y: 1.1;
+      --underline-height: 4vw;
+      --slide-duration: 1s;
+      --underline-duration: 0.8s;
+      --underline-delay: 1.6s;
+      --body-font: 'Montserrat', sans-serif;
+      --title-font: 'Montserrat', sans-serif;
       --section-padding: 2rem 1rem;
-      --font-main: sans-serif;
+      --content-max-width: 800px;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
-      font-family: var(--font-main);
+      font-family: var(--body-font);
       background: #fff;
       color: #111;
       line-height: 1.6;
     }
 
-    header {
-      background: #f3f3f3;
-      padding: 3rem 1rem;
+    header.hero {
+      background: var(--hero-bg) center/cover no-repeat;
+      width: 100%;
+      height: var(--hero-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      color: var(--text-color-light);
       text-align: center;
+      width: var(--title-max-width);
+      max-width: var(--title-max-width);
+      padding: 0 1rem;
     }
 
-    header img {
-      width: 240px;
-      height: auto;
+    .hero-title {
+      font-family: var(--title-font);
+      font-weight: 500;
+      font-size: var(--title-font-size);
+      letter-spacing: var(--title-letter-spacing);
+      display: inline-block;
+      opacity: 0;
+      animation: slideIn var(--slide-duration) ease-out forwards 0.5s;
+      transform: scaleY(var(--title-scale-y));
+      position: relative;
+      line-height: 1;
     }
 
-    header h1 {
-      margin-top: 1rem;
-      font-size: 2rem;
+    /* Underline SVG container absolutely placed within hero-content */
+    .hero-underline {
+      position: absolute;
+      bottom: calc(-1 * var(--underline-height) - 0.2vw);
+      left: 50%;
+      width: 80%;        /* narrowed to 80% of container */
+      transform: translateX(-50%);
+      height: var(--underline-height);
+    }
+    /* Animate the path drawing with dash offset */
+    .hero-underline path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawUnderline var(--underline-duration) ease-out forwards var(--underline-delay);
     }
 
-    header p {
-      font-size: 1.2rem;
-      max-width: var(--max-width);
-      margin: 1rem auto 0;
+    @keyframes slideIn {
+      from { transform: translateX(-100%) scaleY(var(--title-scale-y)); opacity: 0; }
+      to   { transform: translateX(0) scaleY(var(--title-scale-y)); opacity: 1; }
     }
 
-    section {
+    @keyframes drawUnderline {
+      to { stroke-dashoffset: 0; }
+    }
+
+    main section {
       padding: var(--section-padding);
-      max-width: var(--max-width);
+      max-width: var(--content-max-width);
       margin: auto;
     }
+    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .portfolio-item { border: 1px solid #ccc; padding: 1rem; background: #fafafa; }
+    .portfolio-item img { max-width: 100%; height: auto; }
 
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea { padding: 0.75rem; font-size: 1rem; width: 100%; }
+    button { padding: 0.75rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer; }
 
-    .portfolio-item {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      background: #fafafa;
-    }
-
-    .portfolio-item img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    input,
-    textarea {
-      padding: 0.75rem;
-      font-size: 1rem;
-      width: 100%;
-    }
-
-    button {
-      padding: 0.75rem;
-      font-size: 1rem;
-      background: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: var(--section-padding);
-      font-size: 0.9rem;
-      background: #f3f3f3;
-    }
+    footer { text-align: center; padding: var(--section-padding); font-size: 0.9rem; background: #f3f3f3; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg" alt="Alec Boyd Headshot" />
-    <h1>Your one-stop shop for music production</h1>
-    <p>I’m Alec Boyd — a songwriter, engineer, and producer who helps artists take songs from idea to finished record.</p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Alec Boyd</h1>
+      <!-- Inline SVG underline with quadratic curve -->
+      <svg class="hero-underline" viewBox="0 0 1000 60" preserveAspectRatio="none">
+        <path d="M0,30 Q450,0 1000,30" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" />
+      </svg>
+    </div>
   </header>
 
   <main>
