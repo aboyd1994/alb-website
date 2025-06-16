@@ -5,141 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alec Boyd | Music Producer</title>
   <style>
-    /* Import Montserrat weights */
+    /* Font */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
+    /* Variable definitions */
     :root {
-      --hero-height: 100vh;
       --hero-bg: url("https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg");
-      --text-color-light: #fff;
-      --title-max-width: 98vw;
-      --title-font-size: 12vw;
-      --title-letter-spacing: 0.05em;
-      --title-scale-y: 1.1;
-      --underline-height: 4vw;
-      --slide-duration: 1s;
-      --underline-duration: 0.8s;
-      --underline-delay: 1.6s;
+      --hero-height: 100vh;
+      --overlay: rgba(0, 0, 0, 0.4);
+      --text-light: #fff;
       --body-font: 'Montserrat', sans-serif;
       --title-font: 'Montserrat', sans-serif;
-      --section-padding: 2rem 1rem;
-      --content-max-width: 800px;
+      --title-size: 12vw;
+      --title-scale-y: 1.1;
+      --title-spacing: 0.05em;
+      --content-width: 98vw;
+      --underline-height: 4vw;
+      --underline-stroke: 10;
+      --animation-duration: 1s;
+      --underline-speed: 0.8s;
+      --underline-delay: 1.6s;
+      --padding-base: 2rem 1rem;
+      --max-content: 800px;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--body-font);
-      background: #fff;
       color: #111;
       line-height: 1.6;
+      background: #fff;
     }
 
+    /* Hero */
     header.hero {
-      background: var(--hero-bg) center/cover no-repeat;
-      width: 100%;
-      height: var(--hero-height);
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      width: 100%;
+      height: var(--hero-height);
+      background: var(--hero-bg) center/cover no-repeat;
     }
     header.hero::before {
-      content: "";
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      inset: 0;
+      background: var(--overlay);
     }
-
     .hero-content {
       position: relative;
-      color: var(--text-color-light);
       text-align: center;
-      width: var(--title-max-width);
-      max-width: var(--title-max-width);
+      width: var(--content-width);
+      max-width: var(--content-width);
+      color: var(--text-light);
       padding: 0 1rem;
     }
-
     .hero-title {
       font-family: var(--title-font);
       font-weight: 500;
-      font-size: var(--title-font-size);
-      letter-spacing: var(--title-letter-spacing);
+      font-size: var(--title-size);
+      letter-spacing: var(--title-spacing);
       display: inline-block;
-      opacity: 0;
-      animation: slideIn var(--slide-duration) ease-out forwards 0.5s;
       transform: scaleY(var(--title-scale-y));
+      opacity: 0;
       position: relative;
-      line-height: 1;
+      animation: slideIn var(--animation-duration) ease-out forwards 0.5s;
     }
-
-    /* Underline SVG container absolutely placed within hero-content */
+    /* Underline SVG positioned and animated */
     .hero-underline {
       position: absolute;
       bottom: calc(-1 * var(--underline-height) - 0.2vw);
       left: 50%;
-      width: 80%;        /* narrowed to 80% of container */
-      transform: translateX(-50%);
+      width: 80%;
       height: var(--underline-height);
+      transform: translateX(-50%);
     }
-    /* Animate the path drawing with dash offset */
     .hero-underline path {
+      stroke: var(--text-light);
+      stroke-width: var(--underline-stroke);
+      fill: none;
+      stroke-linecap: round;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      animation: drawUnderline var(--underline-duration) ease-out forwards var(--underline-delay);
+      animation: drawUnderline var(--underline-speed) ease-out forwards var(--underline-delay);
     }
 
+    /* Keyframes */
     @keyframes slideIn {
       from { transform: translateX(-100%) scaleY(var(--title-scale-y)); opacity: 0; }
       to   { transform: translateX(0) scaleY(var(--title-scale-y)); opacity: 1; }
     }
-
     @keyframes drawUnderline {
       to { stroke-dashoffset: 0; }
     }
 
+    /* Content sections */
     main section {
-      padding: var(--section-padding);
-      max-width: var(--content-max-width);
+      max-width: var(--max-content);
+      margin: auto;
+      padding: var(--padding-base);
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .portfolio-item {
+      background: #fafafa;
+      border: 1px solid #ccc;
+      padding: 1rem;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Forms */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: var(--max-content);
       margin: auto;
     }
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
 
-    .portfolio { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
-    .portfolio-item { border: 1px solid #ccc; padding: 1rem; background: #fafafa; }
-    .portfolio-item img { max-width: 100%; height: auto; }
-
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea { padding: 0.75rem; font-size: 1rem; width: 100%; }
-    button { padding: 0.75rem; font-size: 1rem; background: black; color: white; border: none; cursor: pointer; }
-
-    footer { text-align: center; padding: var(--section-padding); font-size: 0.9rem; background: #f3f3f3; }
+    /* Footer */
+    footer {
+      background: #f3f3f3;
+      text-align: center;
+      padding: var(--padding-base);
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-content">
       <h1 class="hero-title">Alec Boyd</h1>
-      <!-- Inline SVG underline with quadratic curve -->
       <svg class="hero-underline" viewBox="0 0 1000 60" preserveAspectRatio="none">
-        <path d="M0,30 Q450,0 1000,30" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" />
+        <path d="M0,30 Q450,0 1000,30" />
       </svg>
     </div>
   </header>
-
   <main>
     <section>
       <h2>About Me</h2>
       <p>I take a holistic approach to music production. I’ve worked as a studio engineer, session musician, songwriter, mixer, and mastering engineer, which allows me to speak the language of both creativity and quality. I want your music to feel like you—and I know how to help you get there.</p>
     </section>
-
     <section>
       <h2>Selected Credits</h2>
       <div class="portfolio">
@@ -153,13 +184,11 @@
         </div>
       </div>
     </section>
-
     <section>
       <h2>Songwriting with Alec</h2>
       <p>Watch me write and produce songs in real-time. I share the full creative process — from blank page to final track — on my YouTube series, Songwriting with Alec.</p>
       <p><a href="https://www.youtube.com/@alecboydmusic" target="_blank">Watch on YouTube</a></p>
     </section>
-
     <section>
       <h2>Services</h2>
       <ul>
@@ -171,7 +200,6 @@
       </ul>
       <p>Ask about bundled pricing if you're looking to do multiple services with me.</p>
     </section>
-
     <section>
       <h2>Contact</h2>
       <form action="https://formspree.io/f/your-form-id" method="POST">
@@ -180,12 +208,8 @@
         <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
         <button type="submit">Send</button>
       </form>
-      <p>Based in Austin, TX. Happy to work remotely or in person.</p>
     </section>
   </main>
-
-  <footer>
-    &copy; 2025 Alec Boyd. All rights reserved.
-  </footer>
+  <footer>&copy; 2025 Alec Boyd. All rights reserved.</footer>
 </body>
 </html>
