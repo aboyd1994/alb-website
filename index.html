@@ -1,216 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alec Boyd - Professional Music Producer, Engineer, and Songwriter. Specializing in production, mixing, mastering, and studio engineering.">
+  <meta name="keywords" content="music producer, audio engineer, songwriter, mixing, mastering, studio engineer">
+  <meta name="author" content="Alec Boyd">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alecboyd.com/">
+  <meta property="og:title" content="Alec Boyd | Music Producer">
+  <meta property="og:description" content="Professional music producer, engineer, and songwriter specializing in production, mixing, and mastering.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://alecboyd.com/">
+  <meta property="twitter:title" content="Alec Boyd | Music Producer">
+  <meta property="twitter:description" content="Professional music producer, engineer, and songwriter specializing in production, mixing, and mastering.">
+  <meta property="twitter:image" content="https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+
   <title>Alec Boyd | Music Producer</title>
-  <style>
-    /* Font */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-
-    /* Variable definitions */
-    :root {
-      --hero-bg: url("https://raw.githubusercontent.com/aboyd1994/alb-website/main/cinestill_400d_04_26_2024_000293290027.jpg");
-      --hero-height: 100vh;
-      --overlay: rgba(0, 0, 0, 0.4);
-      --text-light: #fff;
-      --body-font: 'Montserrat', sans-serif;
-      --title-font: 'Montserrat', sans-serif;
-      --title-size: 12vw;
-      --title-scale-y: 1.1;
-      --title-spacing: 0.05em;
-      --content-width: 98vw;
-      --underline-height: 8vw;
-      --underline-stroke: 10;
-      --animation-duration: 1s;
-      --underline-speed: 0.8s;
-      --underline-delay: 1.6s;
-      --underline-offset: calc(-1 * var(--underline-height) - 0vw);  /* adjust this to raise/lower underline */
-      --padding-base: 2rem 1rem;
-      --max-content: 800px;
-    }
-
-    /* Reset & base */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--body-font);
-      color: #111;
-      line-height: 1.6;
-      background: #fff;
-    }
-
-    /* Hero */
-    header.hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: var(--hero-height);
-      background: var(--hero-bg) center/cover no-repeat;
-    }
-    header.hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--overlay);
-    }
-    .hero-content {
-      position: relative;
-      text-align: center;
-      width: var(--content-width);
-      max-width: var(--content-width);
-      color: var(--text-light);
-      padding: 0 1rem;
-    }
-    .hero-title {
-      font-family: var(--title-font);
-      font-weight: 500;
-      font-size: var(--title-size);
-      letter-spacing: var(--title-spacing);
-      display: inline-block;
-      transform: scaleY(var(--title-scale-y));
-      opacity: 0;
-      position: relative;
-      animation: slideIn var(--animation-duration) ease-out forwards 0.5s;
-    }
-    /* Underline SVG positioned and animated */
-    .hero-underline {
-      position: absolute;
-      bottom: var(--underline-offset); /* uses offset variable */
-      left: 50%;
-      width: 80%;
-      height: var(--underline-height);
-      transform: translateX(-50%);
-    }
-    .hero-underline path {
-      stroke: var(--text-light);
-      stroke-width: var(--underline-stroke);
-      fill: none;
-      stroke-linecap: round;
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: drawUnderline var(--underline-speed) ease-out forwards var(--underline-delay);
-    }
-
-    /* Keyframes */
-    @keyframes slideIn {
-      from { transform: translateX(-100%) scaleY(var(--title-scale-y)); opacity: 0; }
-      to   { transform: translateX(0) scaleY(var(--title-scale-y)); opacity: 1; }
-    }
-    @keyframes drawUnderline {
-      to { stroke-dashoffset: 0; }
-    }
-
-    /* Content sections */
-    main section {
-      max-width: var(--max-content);
-      margin: auto;
-      padding: var(--padding-base);
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .portfolio-item {
-      background: #fafafa;
-      border: 1px solid #ccc;
-      padding: 1rem;
-    }
-    .portfolio-item img {
-      width: 100%;
-      height: auto;
-    }
-
-    /* Forms */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: var(--max-content);
-      margin: auto;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-    }
-    button {
-      padding: 0.75rem;
-      font-size: 1rem;
-      background: #000;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-      background: #f3f3f3;
-      text-align: center;
-      padding: var(--padding-base);
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 <body>
-  <header class="hero">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header/Hero Section -->
+  <header class="hero" role="banner">
     <div class="hero-content">
-      <h1 class="hero-title">Alec Boyd</h1>
-      <svg class="hero-underline" viewBox="0 0 1000 60" preserveAspectRatio="none">
-        <path d="M0,30 Q450,0 1000,30" />
-      </svg>
+      <h1 class="hero-title">
+        Alec Boyd
+        <div class="hero-underline">
+          <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+            <!-- Custom handwritten underline path -->
+            <!-- Starts at baseline, rises to peak under 'B', dips under 'Y', returns to baseline under 'D' -->
+            <path d="M0,30 Q200,15 400,10 Q600,5 800,15 Q900,20 1000,30" />
+          </svg>
+        </div>
+      </h1>
+      <p class="hero-subtitle">Music Producer • Engineer • Songwriter</p>
+      <a href="#contact" class="hero-cta">Get In Touch</a>
     </div>
   </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I take a holistic approach to music production. I’ve worked as a studio engineer, session musician, songwriter, mixer, and mastering engineer, which allows me to speak the language of both creativity and quality. I want your music to feel like you—and I know how to help you get there.</p>
-    </section>
-    <section>
-      <h2>Selected Credits</h2>
-      <div class="portfolio">
-        <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300x200" alt="Project Thumbnail" />
-          <p><strong>Artist Name</strong><br>Role: Producer, Mixer</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300x200" alt="Project Thumbnail" />
-          <p><strong>Artist Name</strong><br>Role: Engineer, Mastering</p>
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- About Section -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="section-content">
+        <h2 id="about-heading">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>I take a holistic approach to music production. I've worked as a studio engineer, session musician, songwriter, mixer, and mastering engineer, which allows me to speak the language of both creativity and quality.</p>
+            <p>I want your music to feel like you—and I know how to help you get there. Whether you're looking to capture the perfect take, craft a compelling arrangement, or polish your final mix, I bring years of experience and a passion for great music to every project.</p>
+          </div>
+          <div class="about-image">
+            <img src="https://via.placeholder.com/400x300" alt="Alec Boyd in the studio" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
-    <section>
-      <h2>Songwriting with Alec</h2>
-      <p>Watch me write and produce songs in real-time. I share the full creative process — from blank page to final track — on my YouTube series, Songwriting with Alec.</p>
-      <p><a href="https://www.youtube.com/@alecboydmusic" target="_blank">Watch on YouTube</a></p>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section" aria-labelledby="portfolio-heading">
+      <div class="section-content">
+        <h2 id="portfolio-heading">Selected Credits</h2>
+        <div class="portfolio-grid">
+          <article class="portfolio-item">
+            <img src="https://via.placeholder.com/400x250" alt="Album cover for Artist Name" class="portfolio-image" loading="lazy">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Artist Name</h3>
+              <p class="portfolio-role">Producer, Mixer</p>
+              <p>Full-length album featuring hit singles and critical acclaim.</p>
+            </div>
+          </article>
+          <article class="portfolio-item">
+            <img src="https://via.placeholder.com/400x250" alt="Album cover for Another Artist" class="portfolio-image" loading="lazy">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Another Artist</h3>
+              <p class="portfolio-role">Engineer, Mastering</p>
+              <p>EP that reached #1 on independent charts.</p>
+            </div>
+          </article>
+          <article class="portfolio-item">
+            <img src="https://via.placeholder.com/400x250" alt="Album cover for Third Artist" class="portfolio-image" loading="lazy">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Third Artist</h3>
+              <p class="portfolio-role">Songwriter, Producer</p>
+              <p>Collaborative songwriting and production for major label release.</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
-    <section>
-      <h2>Services</h2>
-      <ul>
-        <li>Songwriting</li>
-        <li>Production</li>
-        <li>Mixing</li>
-        <li>Mastering</li>
-        <li>Studio Engineering</li>
-      </ul>
-      <p>Ask about bundled pricing if you're looking to do multiple services with me.</p>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="section" aria-labelledby="youtube-heading">
+      <div class="section-content">
+        <h2 id="youtube-heading">Songwriting with Alec</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>Watch me write and produce songs in real-time. I share the full creative process — from blank page to final track — on my YouTube series, <em>Songwriting with Alec</em>.</p>
+            <p>Each episode takes you behind the scenes of the creative process, showing how ideas develop from initial inspiration to finished production. Perfect for aspiring songwriters and producers looking to learn from real-world examples.</p>
+            <a href="https://www.youtube.com/@alecboydmusic" target="_blank" rel="noopener noreferrer" class="btn">Watch on YouTube</a>
+          </div>
+          <div class="youtube-preview">
+            <img src="https://via.placeholder.com/400x250" alt="YouTube channel preview" loading="lazy">
+          </div>
+        </div>
+      </div>
     </section>
-    <section>
-      <h2>Contact</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
+
+    <!-- Services Section -->
+    <section id="services" class="section" aria-labelledby="services-heading">
+      <div class="section-content">
+        <h2 id="services-heading">Services</h2>
+        <div class="services-list">
+          <div class="service-item">
+            <div class="service-icon">🎵</div>
+            <h3>Songwriting</h3>
+            <p>Collaborative songwriting sessions to help bring your musical vision to life.</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🎛️</div>
+            <h3>Production</h3>
+            <p>Full production services from arrangement to final mix preparation.</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🎚️</div>
+            <h3>Mixing</h3>
+            <p>Professional mixing to balance and enhance your tracks.</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">📊</div>
+            <h3>Mastering</h3>
+            <p>Final mastering to ensure your music sounds great on all platforms.</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🎧</div>
+            <h3>Studio Engineering</h3>
+            <p>Professional recording sessions in a fully equipped studio environment.</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; font-style: italic;">Ask about bundled pricing if you're looking to do multiple services with me.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="section-content">
+        <h2 id="contact-heading">Contact</h2>
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" aria-labelledby="contact-heading">
+          <div class="form-group">
+            <label for="name" class="form-label">Name *</label>
+            <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea id="message" name="message" rows="5" class="form-textarea" placeholder="Tell me about your project..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
-  <footer>&copy; 2025 Alec Boyd. All rights reserved.</footer>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <p>&copy; 2025 Alec Boyd. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@alecboydmusic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+          📺
+        </a>
+        <a href="https://instagram.com/alecboydmusic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          📷
+        </a>
+        <a href="https://twitter.com/alecboydmusic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+          🐦
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for enhanced functionality -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission handling
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      // Add loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      // Reset after a delay (in real implementation, this would be after form submission)
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 2000);
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.portfolio-item, .service-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
